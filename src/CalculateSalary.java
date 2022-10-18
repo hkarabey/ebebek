@@ -25,6 +25,7 @@ public class CalculateSalary{
         int hireYear = scan.nextInt();
         listEmployee.add(hireYear);
         return listEmployee;
+
     }
 
 }

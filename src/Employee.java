@@ -62,8 +62,6 @@ public class Employee {
     }
 
     public double raiseSalary() {
-        double taxForRaiseSalary= tax(salary);
-        double bonusForRaiseSalary=bonus(salary);
         int workYear = 2021 - hireYear;
         int raiseSalary=0;
         if (workYear < 10) {
@@ -74,20 +72,21 @@ public class Employee {
            raiseSalary+= salary * (1.15);
         }
 
-        return raiseSalary-taxForRaiseSalary+bonusForRaiseSalary;
+        return raiseSalary-salary;
     }
 
     @Override
     public String toString() {
         return "Employee"+"\n" +
-                "name='" + name + '\'' + "\n" +
-                "salary=" + salary + "\n" +
-                "workHours=" + workHours + "\n" +
-                "hireYear=" + hireYear + "\n" +
-                "tax=" + tax(salary) + "\n" +
-                "bonus=" + bonus(salary) + "\n" +
-                "raiseSalary=" + raiseSalary() + "\n" +
-                "Toplam Maaş=" + (raiseSalary() + tax(salary)) +
+                "Adı : " + name  + "\n" +
+                "Maaşı : " + salary + "\n" +
+                "Çalışma Saati : " + workHours + "\n" +
+                "Başlangıç Yılı : " + hireYear + "\n" +
+                "Vergi : " + tax(salary) + "\n" +
+                "Bonus : " + bonus(salary) + "\n" +
+                "Maaş Artışı : " + raiseSalary() + "\n" +
+                "Vergi ve Bonuslar ile birlikte maaş : " + (salary+bonus(salary) - tax(salary)) + "\n" +
+                "Toplam Maaş : " + (salary+bonus(salary)+raiseSalary() - tax(salary)) +
                 "";
     }
 
